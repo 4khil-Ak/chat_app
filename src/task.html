@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Task | Siam Computing</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .class {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            padding: 5px;
+        }
+
+        .column {
+            height: 33.33%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 5px;
+            justify-content: space-between;
+        }
+
+        .cell {
+            position: relative;
+            background: #DD3D3D;
+            padding: 5px;
+            width: 32.5%;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: fit-content;
+            height: fit-content;
+        }
+
+        small {
+            color: #fff;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+
+        .display-none {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="class">
+        <div class="column">
+            <div class="cell">
+                <p>This is test</p>
+            </div>
+            <div class="cell">
+                <small>testing</small>
+            </div>
+            <div class="cell">
+                <p>This is test</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="cell"><small>testing</small></div>
+            <div class="cell">
+                <p>This is test</p>
+            </div>
+            <div class="cell"><small>testing</small></div>
+        </div>
+        <div class="column">
+            <div class="cell display-none">
+                <p>This is test</p>
+            </div>
+            <div class="cell"><small>testing</small></div>
+            <div class="cell display-none">
+                <p>This is test</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
