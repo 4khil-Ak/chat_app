@@ -62,7 +62,7 @@ export const Login = () => {
             alert(data.message);
           } else {
             context.setUser(data.data);
-            localStorage.setItem("chatID",data.data.fname);
+            sessionStorage.setItem("chatID",data.data.fname);
             navigate(`/dashboard/${data.data.fname}`)
           }
           // setFormValues(initialState);

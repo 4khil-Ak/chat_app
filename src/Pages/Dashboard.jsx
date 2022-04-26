@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useEffect, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { createStyles, makeStyles } from "@mui/styles";
-import { Sidebar, MessageForm } from "../Components/Dashboard/index";
+import { Sidebar, MessageForm, Profile } from "../Components/Dashboard/index";
 import UserContext from "../Context/UserContext";
 
 const useStyles = makeStyles(() =>
@@ -29,7 +29,7 @@ export const Dashboard = () => {
     context.fetchUser();
   }, []);
 
-  if (params.id === localStorage.getItem("chatID")) {
+  if (params.id === sessionStorage.getItem("chatID")) {
     return (
       <div className={clsx(classes.dashboard, "row m-0")}>
         <div className={clsx(classes.sidebar, "col-3 p-2")}>
@@ -38,7 +38,9 @@ export const Dashboard = () => {
         <div className={clsx(classes.message, "col-6 p-2")}>
           <MessageForm />
         </div>
-        <div className={clsx(classes.message, "col-3 p-2")}></div>
+        <div className={clsx(classes.message, "bg-white col-3 p-2")}>
+          <Profile />
+        </div>
       </div>
     );
   } else {

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext({
   usersList: [],
@@ -10,9 +11,11 @@ const UserContext = createContext({
   fetchUser: () => {},
   sendMessage: () => {},
   getMessage: () => {},
+  logout: () => {},
 });
 
 export const UserContextProvider = (props) => {
+  let navigate = useNavigate();
   const [user, setUserDetails] = useState({});
   const [usersList, setUsersList] = useState([]);
   const [message, setMessage] = useState([]);
@@ -67,6 +70,11 @@ export const UserContextProvider = (props) => {
       });
     });
   };
+  const logout = () => {
+    sessionStorage.clear();
+    setUserDetails({});
+    navigate("/");
+  };
   return (
     <UserContext.Provider
       value={{
@@ -79,6 +87,7 @@ export const UserContextProvider = (props) => {
         setChat: setChat,
         sendMessage: sendMessage,
         getMessage: getMessage,
+        logout: logout,
       }}
     >
       {props.children}
